@@ -10,20 +10,17 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
-
 --  缩进
-opt.tabstop = 4 
+opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
 
 -- 防止包裹
-opt.wrap = false;
-
+opt.wrap = false
 
 -- 光标行
 opt.cursorline = true
-
 
 -- 启用鼠标
 opt.mouse:append("a")
@@ -35,12 +32,13 @@ opt.clipboard:append("unnamedplus")
 opt.ignorecase = true
 opt.smartcase = true
 
- -- 外观
+-- 外观
 opt.termguicolors = true
 opt.signcolumn = "yes"
 
 -- 设置路径：存储nvim-tree sitter 实现高亮的解析器
 --opt.runtimepath:append("~/.local/share/nvim/nvim-treesitter")
 
-
-
+-- avoid the conflict between cmp and navigator
+vim.cmd("autocmd FileType guihua lua require('cmp').setup.buffer { enabled = false }")
+vim.cmd("autocmd FileType guihua_rust lua require('cmp').setup.buffer { enabled = false }")

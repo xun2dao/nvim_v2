@@ -28,6 +28,6 @@ map("n", "<leader>a", ":bp<CR>")
 map("n", "<leader>f", ":bn<CR>")
 
 
-
-
+-- follow-md-links.nvim
+map("n", "<bs>", ":edit#<cr>")
 
