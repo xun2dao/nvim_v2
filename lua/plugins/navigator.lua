@@ -6,6 +6,7 @@ require("navigator").setup({
 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, -- border style, can be one of 'none', 'single', 'double',
 	-- 'shadow', or a list of chars which defines the border
 	on_attach = function(client, bufnr)
+        require('navigator.lspclient.mapping').setup({bufnr=bufnr, client=client})
 		-- your hook
 	end,
 	-- put a on_attach of your own here, e.g
@@ -38,9 +39,9 @@ require("navigator").setup({
 		diagnostic_head_severity_1 = "🈲",
 		-- refer to lua/navigator.lua for more icons setups
 	},
-	mason = false, -- set to true if you would like use the lsp installed by williamboman/mason
+	mason = true, -- set to true if you would like use the lsp installed by williamboman/mason
 	lsp = {
-		enable = true, -- skip lsp setup, and only use treesitter in navigator.
+		enable = false, -- skip lsp setup, and only use treesitter in navigator.
 		-- Use this if you are not using LSP servers, and only want to enable treesitter support.
 		-- If you only want to prevent navigator from touching your LSP server configs,
 		-- use `disable_lsp = "all"` instead.
